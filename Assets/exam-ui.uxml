@@ -1,0 +1,65 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/MainMenuStyle.uss?fileID=7433441132597879392&amp;guid=4e740e3a430d2a7469add70987dcf81b&amp;type=3#MainMenuStyle" />
+    <ui:VisualElement name="Container" style="flex-grow: 1;">
+        <ui:Label tabindex="-1" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Question1" class="question">
+            <ui:RadioButton name="a" class="button" style="left: 66px; bottom: -127px; width: 26px; height: 24px; scale: 0.5 0.5; margin-top: 5px; margin-bottom: 2px; margin-left: 3px; transform-origin: 32% 158%;" />
+            <ui:RadioButton name="b" class="button" style="bottom: -97px; width: 26px; height: 27px; margin-bottom: 2px; transform-origin: 747% 146%;" />
+            <ui:RadioButton name="c" class="button" style="bottom: -97px; width: 26px; height: 27px; margin-bottom: 2px; transform-origin: 989% -85%;" />
+            <ui:RadioButton name="d" class="button" style="bottom: -97px; width: 26px; height: 27px; margin-bottom: 2px; transform-origin: 1227% -314%;" />
+        </ui:Label>
+        <ui:Label tabindex="-1" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Question2">
+            <ui:RadioButton name="a" class="button" style="left: 66px; bottom: -127px; width: 26px; height: 24px; scale: 0.5 0.5; margin-top: 5px; margin-bottom: 2px; margin-left: 3px; transform-origin: 29% -798%;" />
+            <ui:RadioButton name="b" class="button" style="bottom: -97px; width: 26px; height: 27px; margin-bottom: 2px; transform-origin: 737% -707%;" />
+            <ui:RadioButton name="c" class="button" style="bottom: -97px; width: 26px; height: 27px; margin-bottom: 2px; transform-origin: 917% -939%;" />
+            <ui:RadioButton name="d" class="button" style="bottom: -97px; width: 26px; height: 27px; margin-bottom: 2px; transform-origin: 1104% -1166%;" />
+        </ui:Label>
+        <ui:Label tabindex="-1" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Question3">
+            <ui:RadioButton name="a" class="button" style="left: 66px; bottom: -127px; width: 26px; height: 24px; scale: 0.5 0.5; margin-top: 5px; margin-bottom: 2px; margin-left: 3px; transform-origin: 24% -1762%;" />
+            <ui:RadioButton name="b" class="button" style="bottom: -97px; width: 26px; height: 27px; margin-bottom: 2px; transform-origin: 697% -1561%;" />
+            <ui:RadioButton name="c" class="button" style="bottom: -97px; width: 26px; height: 27px; margin-bottom: 2px; transform-origin: 880% -1792%;" />
+            <ui:RadioButton name="d" class="button" style="bottom: -97px; width: 26px; height: 27px; margin-bottom: 2px; transform-origin: 1069% -2019%;" />
+        </ui:Label>
+        <ui:Label tabindex="-1" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Question4">
+            <ui:RadioButton name="a" class="button" style="left: 66px; bottom: -127px; width: 26px; height: 24px; scale: 0.5 0.5; margin-top: 5px; margin-bottom: 2px; margin-left: 3px; transform-origin: 30% -2733%;" />
+            <ui:RadioButton name="b" class="button" style="bottom: -97px; width: 26px; height: 27px; margin-bottom: 2px; transform-origin: 753% -2419%;" />
+            <ui:RadioButton name="c" class="button" style="bottom: -97px; width: 26px; height: 27px; margin-bottom: 2px; transform-origin: 1030% -2647%;" />
+            <ui:RadioButton name="d" class="button" style="bottom: -97px; width: 26px; height: 27px; margin-bottom: 2px; transform-origin: 1268% -2878%;" />
+        </ui:Label>
+        <ui:Label tabindex="-1" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Question5">
+            <ui:RadioButton name="a" class="button" style="left: 66px; bottom: -127px; width: 26px; height: 24px; scale: 0.5 0.5; margin-top: 5px; margin-bottom: 2px; margin-left: 3px; transform-origin: 30% -3680%;" />
+            <ui:RadioButton name="b" class="button" style="bottom: -97px; width: 26px; height: 27px; margin-bottom: 2px; transform-origin: 736% -3273%;" />
+            <ui:RadioButton name="c" class="button" style="bottom: -97px; width: 26px; height: 27px; margin-bottom: 2px; transform-origin: 919% -3498%;" />
+            <ui:RadioButton name="d" class="button" style="bottom: -97px; width: 26px; height: 27px; margin-bottom: 2px; transform-origin: 1146% -3727%;" />
+        </ui:Label>
+        <ui:Label tabindex="-1" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Question6">
+            <ui:RadioButton name="a" class="button" style="left: 66px; bottom: -127px; width: 26px; height: 24px; scale: 0.5 0.5; margin-top: 5px; margin-bottom: 2px; margin-left: 3px; transform-origin: 30% -4581%;" />
+            <ui:RadioButton name="b" class="button" style="bottom: -97px; width: 26px; height: 27px; margin-bottom: 2px; transform-origin: 700% -4070%;" />
+            <ui:RadioButton name="c" class="button" style="bottom: -97px; width: 26px; height: 27px; margin-bottom: 2px; transform-origin: 928% -4299%;" />
+            <ui:RadioButton name="d" class="button" style="bottom: -97px; width: 26px; height: 27px; margin-bottom: 2px; transform-origin: 1146% -4527%;" />
+        </ui:Label>
+        <ui:Label tabindex="-1" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Question7">
+            <ui:RadioButton name="a" class="button" style="left: 66px; bottom: -127px; width: 26px; height: 24px; scale: 0.5 0.5; margin-top: 5px; margin-bottom: 2px; margin-left: 3px; transform-origin: 30% -5545%;" />
+            <ui:RadioButton name="b" class="button" style="bottom: -97px; width: 26px; height: 27px; margin-bottom: 2px; transform-origin: 838% -4922%;" />
+            <ui:RadioButton name="c" class="button" style="bottom: -97px; width: 26px; height: 27px; margin-bottom: 2px; transform-origin: 1055% -5153%;" />
+            <ui:RadioButton name="d" class="button" style="bottom: -97px; width: 26px; height: 27px; margin-bottom: 2px; transform-origin: 1287% -5384%;" />
+        </ui:Label>
+        <ui:Label tabindex="-1" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Question8">
+            <ui:RadioButton name="a" class="button" style="left: 66px; bottom: -127px; width: 26px; height: 24px; scale: 0.5 0.5; margin-top: 5px; margin-bottom: 2px; margin-left: 3px; transform-origin: 30% -6506%;" />
+            <ui:RadioButton name="b" class="button" style="bottom: -97px; width: 26px; height: 27px; margin-bottom: 2px; transform-origin: 798% -5770%;" />
+            <ui:RadioButton name="c" class="button" style="bottom: -97px; width: 26px; height: 27px; margin-bottom: 2px; transform-origin: 1035% -6003%;" />
+            <ui:RadioButton name="d" class="button" style="bottom: -97px; width: 26px; height: 27px; margin-bottom: 2px; transform-origin: 1275% -6229%;" />
+        </ui:Label>
+        <ui:Label tabindex="-1" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Question9">
+            <ui:RadioButton name="a" class="button" style="left: 66px; bottom: -127px; width: 26px; height: 24px; scale: 0.5 0.5; margin-top: 5px; margin-bottom: 2px; margin-left: 3px; transform-origin: 30% -7460%;" />
+            <ui:RadioButton name="b" class="button" style="bottom: -97px; width: 26px; height: 27px; margin-bottom: 2px; transform-origin: 692% -6626%;" />
+            <ui:RadioButton name="c" class="button" style="bottom: -97px; width: 26px; height: 27px; margin-bottom: 2px; transform-origin: 903% -6857%;" />
+            <ui:RadioButton name="d" class="button" style="bottom: -97px; width: 26px; height: 27px; margin-bottom: 2px; transform-origin: 1116% -7084%;" />
+        </ui:Label>
+        <ui:Label tabindex="-1" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Question10">
+            <ui:RadioButton name="a" class="button" style="left: 66px; bottom: -127px; width: 26px; height: 24px; scale: 0.5 0.5; margin-top: 5px; margin-bottom: 2px; margin-left: 3px; transform-origin: 30% -8422%;" />
+            <ui:RadioButton name="b" class="button" style="bottom: -97px; width: 26px; height: 27px; margin-bottom: 2px; transform-origin: 700% -7479%;" />
+            <ui:RadioButton name="c" class="button" style="bottom: -97px; width: 26px; height: 27px; margin-bottom: 2px; transform-origin: 875% -7706%;" />
+            <ui:RadioButton name="d" class="button" style="bottom: -97px; width: 26px; height: 27px; margin-bottom: 2px; transform-origin: 1062% -7938%;" />
+        </ui:Label>
+    </ui:VisualElement>
+</ui:UXML>

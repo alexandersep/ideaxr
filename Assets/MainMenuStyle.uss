@@ -1,0 +1,14 @@
+.question {
+    font-size: 5px;
+}
+
+.button {
+    font-size: 5px;
+    width: 220px;
+    height: 26px;
+    align-self: auto;
+    justify-content: flex-start;
+    align-items: auto;
+    left: 2px;
+    scale: 0.5 0.5;
+}
