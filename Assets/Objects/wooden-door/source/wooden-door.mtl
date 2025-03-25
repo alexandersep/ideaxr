@@ -1,0 +1,24 @@
+# Blender 4.3.2 MTL File: 'wooden-door.blend'
+# www.blender.org
+
+newmtl Material.001
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd textures/Material.001_albedo.jpg
+map_Ns textures/Material.001_roughness.jpg
+
+newmtl None
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd textures/DefaultMaterial_albedo.jpg
+map_Ns textures/DefaultMaterial_roughness.jpg
+map_refl textures/DefaultMaterial_metallic.jpg
+map_Bump -bm 1.000000 textures/DefaultMaterial_normal.jpg
