@@ -1,0 +1,13 @@
+# Blender 4.3.2 MTL File: 'tileable-stylized-wooden-floor-texture.blend'
+# www.blender.org
+
+newmtl Material_#46
+Ns 20.000006
+Ka 1.000000 1.000000 1.000000
+Ks 0.060000 0.060000 0.060000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 3
+map_Kd G:/AR/AR_Group_Project_Models/tileable-stylized-wooden-floor-texture/textures/albedo.png
+map_refl G:/AR/AR_Group_Project_Models/tileable-stylized-wooden-floor-texture/textures/metal.png
