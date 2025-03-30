@@ -1,0 +1,14 @@
+# Blender 4.3.2 MTL File: 'None'
+# www.blender.org
+
+newmtl Desk.002
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd textures/Desk_albedo.jpg
+map_Ns textures/Desk_roughness.jpg
+map_refl textures/Desk_metallic.jpg
+map_Bump -bm 1.000000 textures/Desk_normal.png
