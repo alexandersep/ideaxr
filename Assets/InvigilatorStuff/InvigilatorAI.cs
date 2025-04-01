@@ -60,12 +60,12 @@ public class InvigilatorAI : MonoBehaviour
     }
 
 
-    private void Awake()
-    {
-        player = GameObject.Find("Player").transform;
-        agent = GetComponent<NavMeshAgent>();
-        this.enabled = true;
-    }
+    // private void Awake()
+    // {
+    //     player = GameObject.Find("Player").transform;
+    //     agent = GetComponent<NavMeshAgent>();
+    //     this.enabled = true;
+    // }
 
     // Update is called once per frame
     void Update()
