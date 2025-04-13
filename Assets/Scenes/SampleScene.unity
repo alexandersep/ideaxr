@@ -11910,6 +11910,9 @@ MonoBehaviour:
   retreatTime: 3
   retreatSpeed: 3
   idleTime: 2
+  patrolRadius: 10
+  maxDistanceFromPlayer: 15
+  standPoint: {x: 0.06, y: 0, z: 1.162}
   currentState: 0
 --- !u!195 &1633248394
 NavMeshAgent:
@@ -14413,14 +14416,94 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f3fd20ee1a36fa84bb34cd0d4359df9a, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1601964890}
+      addedObject: {fileID: 2035309762}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f3fd20ee1a36fa84bb34cd0d4359df9a, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1601964889}
+      addedObject: {fileID: 2035309761}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f3fd20ee1a36fa84bb34cd0d4359df9a, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1601964888}
+      addedObject: {fileID: 2035309764}
   m_SourcePrefab: {fileID: 100100000, guid: f3fd20ee1a36fa84bb34cd0d4359df9a, type: 3}
+--- !u!1 &2035309760 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f3fd20ee1a36fa84bb34cd0d4359df9a, type: 3}
+  m_PrefabInstance: {fileID: 2035309759}
+  m_PrefabAsset: {fileID: 0}
+--- !u!195 &2035309761
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2035309760}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &2035309762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2035309760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32536c83ff6cc3347b09714f12dd0f3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agent: {fileID: 2035309761}
+  player: {fileID: 2067215672}
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 256
+  walkPoint: {x: 0, y: 0, z: 0}
+  walkPointRange: 5
+  sightRange: 0
+  playerInSightRange: 0
+  hearingRadius: 7
+  whisperThreshold: 0.05
+  alertThreshold: 0.15
+  resetTime: 5
+  retreatTime: 3
+  retreatSpeed: 3
+  idleTime: 1
+  patrolRadius: 10
+  maxDistanceFromPlayer: 15
+  standPoint: {x: 0.06, y: 0, z: 1.162}
+  currentState: 0
+--- !u!95 &2035309764
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2035309760}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 83fe436dceab853408ff175805a57549, type: 3}
+  m_Controller: {fileID: 9100000, guid: 78546085334852d4493737eb0848b5da, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2053407135
 GameObject:
   m_ObjectHideFlags: 0

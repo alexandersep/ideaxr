@@ -57,16 +57,16 @@ public class RadioButtonBehaviour : MonoBehaviour
 
             if (b == _selectedButton)
             {
-                if (_isCorrect)
-                {
-                    colors.normalColor = new Color(1, 0, 0, 0.3f);
-                    colors.selectedColor = new Color(1, 0, 0, 0.3f);
-                }
-                else
-                {
-                   colors.normalColor = new Color(0, 0, 1, 0.3f);
-                   colors.selectedColor = new Color(0, 0, 1, 0.3f);
-                }
+                //if (_isCorrect)
+                //{
+                //    colors.normalColor = new Color(1, 0, 0, 0.3f);
+                //    colors.selectedColor = new Color(1, 0, 0, 0.3f);
+                //}
+                //else
+                //{
+                colors.normalColor = new Color(0, 0, 1, 0.3f);
+                colors.selectedColor = new Color(0, 0, 1, 0.3f);
+                //}
             } else
             {
                 colors.normalColor = new Color(0, 0, 0, 0);
