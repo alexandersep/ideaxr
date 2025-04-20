@@ -9,6 +9,6 @@ public class SensitivityLabel : MonoBehaviour
 
     void Update()
     {
-        valueText.text = "Sens.: " + Mathf.RoundToInt(sensitivitySlider.value).ToString();
+        valueText.text = "Sens.: " + (Mathf.RoundToInt(sensitivitySlider.value * 200).ToString());
     }
 }

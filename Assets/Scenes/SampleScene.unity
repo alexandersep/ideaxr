@@ -3220,7 +3220,10 @@ MonoBehaviour:
   source: {fileID: 0}
   minScale: {x: 1, y: 1, z: 1}
   maxScale: {x: 15, y: 15, z: 15}
+  sensitivitySlider: {fileID: 787358862}
   detector: {fileID: 2067215671}
+  minimumSensibility: 10
+  maximumSensibility: 200
   loudnessSensibility: 100
   threshold: 0.5
 --- !u!65 &348237212
@@ -7018,16 +7021,16 @@ MonoBehaviour:
   m_FillRect: {fileID: 82527579}
   m_HandleRect: {fileID: 1464951444}
   m_Direction: 0
-  m_MinValue: 10
-  m_MaxValue: 200
+  m_MinValue: 0
+  m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 100
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 348237211}
         m_TargetAssemblyTypeName: ScaleFromMicrophone, Assembly-CSharp
-        m_MethodName: SetSensitivity
+        m_MethodName: SetLoudnessSensibility
         m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

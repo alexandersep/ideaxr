@@ -1,13 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ScaleFromMicrophone : MonoBehaviour
 {
     public AudioSource source;
     public Vector3 minScale, maxScale;
+    public Slider sensitivitySlider;
     public AudioDetector detector;
 
+    public float minimumSensibility = 10f;
+    public float maximumSensibility = 200f;
     public float loudnessSensibility = 100f;
     public float threshold = 0.5f;
 
@@ -24,15 +28,24 @@ public class ScaleFromMicrophone : MonoBehaviour
         //Debug.Log(loudness);
         if (loudness < threshold)
         {
-            loudness = 0;
+            loudness = 0.01f;
         }
+
+        if (sensitivitySlider == null) return;
+
+        SetLoudnessSensibility(sensitivitySlider.value);
 
         transform.localScale = Vector3.Lerp(minScale, maxScale, loudness);
     }
 
-    public void SetSensitivity(float value)
+    //public void SetSensitivity(float value)
+    //{
+    //    loudnessSensibility = value;
+    //    Debug.Log("Microphone Sensitivity set to: " + loudnessSensibility);
+    //}
+
+    public void SetLoudnessSensibility(float value)
     {
-        loudnessSensibility = value;
-        Debug.Log("Microphone Sensitivity set to: " + loudnessSensibility);
+        loudnessSensibility = Mathf.Lerp(minimumSensibility, maximumSensibility, value);
     }
 }
