@@ -29,4 +29,10 @@ public class ScaleFromMicrophone : MonoBehaviour
 
         transform.localScale = Vector3.Lerp(minScale, maxScale, loudness);
     }
+
+    public void SetSensitivity(float value)
+    {
+        loudnessSensibility = value;
+        Debug.Log("Microphone Sensitivity set to: " + loudnessSensibility);
+    }
 }
