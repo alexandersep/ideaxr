@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public class InvigilatorAI : MonoBehaviour
 {
+    public bool isActive = true; // Flag to enable/disable the AI
     public NavMeshAgent agent;
 
     public Transform player;
@@ -41,6 +42,13 @@ public class InvigilatorAI : MonoBehaviour
     private float retreatStartTime;
     private bool isIdling = false;
 
+    // pause functionality 
+    private Vector3 savedDestination;
+    private EnemyState savedState;
+    private bool wasPatrolling;
+    private bool wasIdling;
+    private Coroutine currentCoroutine;
+
     public enum EnemyState
     {
         PATROL,
@@ -59,19 +67,25 @@ public class InvigilatorAI : MonoBehaviour
         timeSinceLastNoise = 0f;
     }
 
-
-    // private void Awake()
-    // {
-    //     player = GameObject.Find("Player").transform;
-    //     agent = GetComponent<NavMeshAgent>();
-    //     this.enabled = true;
-    // }
-
     // Update is called once per frame
     void Update()
     {
-
-        if (audioDetector == null) Debug.Log("AudioDetector is null");
+        if (!isActive)
+        {
+            // If we just became inactive, save our state
+            if (agent.hasPath)
+            {
+                savedDestination = agent.destination;
+                agent.ResetPath();
+            }
+            return;
+        }
+        else if (!agent.hasPath && savedDestination != Vector3.zero)
+        {
+            // Restore path if we were paused
+            agent.SetDestination(savedDestination);
+            savedDestination = Vector3.zero;
+        }
 
         float distance = Vector3.Distance(transform.position, player.position);
         float loudness = audioDetector.GetAudioFromMicrophone();
@@ -203,51 +217,104 @@ public class InvigilatorAI : MonoBehaviour
         walkPointSet = false;
     }
 
+    // Modify all coroutine-starting methods to track the current coroutine
     IEnumerator IdleBeforeNextPatrol()
     {
-        isIdling = true;
+        if (!isActive) yield break;
 
-        // **Set Idle Animation**
+        isIdling = true;
         animator.SetBool("isIdling", true);
         animator.SetBool("isPatrolling", false);
 
-        Debug.Log("Enemy is idling...");
-        yield return new WaitForSeconds(idleTime);
-        isIdling = false;
-        Patroling();
-    }
+        float timer = 0;
+        while (timer < idleTime && isActive)
+        {
+            timer += Time.deltaTime;
+            yield return null;
+        }
 
+        if (isActive)
+        {
+            isIdling = false;
+            Patroling();
+        }
+    }
 
     IEnumerator FacePlayerWhenArrived(bool doAttack)
     {
-        // Wait until the enemy reaches the standPoint
-        while (agent.pathPending || agent.remainingDistance > agent.stoppingDistance)
+        if (!isActive) yield break;
+
+        while ((agent.pathPending || agent.remainingDistance > agent.stoppingDistance) && isActive)
         {
             yield return null;
         }
 
-        // Rotate towards the player
+        if (!isActive) yield break;
+
         Vector3 directionToPlayer = (player.position - transform.position).normalized;
-        directionToPlayer.y = 0; // Prevent vertical tilting
+        directionToPlayer.y = 0;
         Quaternion targetRotation = Quaternion.LookRotation(directionToPlayer);
 
-        float rotationSpeed = 5f; // Adjust for smoothness
-        while (Quaternion.Angle(transform.rotation, targetRotation) > 1f)
+        float rotationSpeed = 5f;
+        while (Quaternion.Angle(transform.rotation, targetRotation) > 1f && isActive)
         {
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
             yield return null;
         }
 
-        if (doAttack)
+        if (isActive)
         {
-            // **Set Attack Animation**
-            animator.SetTrigger("isAttacking");
+            if (doAttack)
+                animator.SetTrigger("isAttacking");
+            else
+            {
+                animator.ResetTrigger("isAttacking");
+                currentState = EnemyState.INVESTIGATE;
+                animator.SetBool("isInvestigating", true);
+            }
+        }
+    }
+
+    // Add this to handle inspector changes
+    private void OnValidate()
+    {
+        if (!Application.isPlaying) return;
+
+        if (!isActive)
+        {
+            // Save current state
+            savedState = currentState;
+            wasPatrolling = animator.GetBool("isPatrolling");
+            wasIdling = animator.GetBool("isIdling");
+
+            // Stop movement
+            if (agent != null && agent.enabled)
+            {
+                agent.isStopped = true;
+            }
+
+            // Stop any running coroutines
+            if (currentCoroutine != null)
+            {
+                StopCoroutine(currentCoroutine);
+                currentCoroutine = null;
+            }
+
+            // Set to idle animation
+            animator.SetBool("isPatrolling", false);
+            animator.SetBool("isIdling", true);
         }
         else
         {
-            animator.ResetTrigger("isAttacking");
-            currentState = EnemyState.INVESTIGATE;
-            animator.SetBool("isInvestigating", true);
+            // Restore state
+            if (agent != null && agent.enabled)
+            {
+                agent.isStopped = false;
+            }
+
+            // Restore animations
+            animator.SetBool("isPatrolling", wasPatrolling);
+            animator.SetBool("isIdling", wasIdling);
         }
     }
 }
