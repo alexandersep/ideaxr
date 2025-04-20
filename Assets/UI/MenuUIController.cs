@@ -17,14 +17,4 @@ public class MenuUIController : MonoBehaviour
         Debug.Log("End Game Pressed");
         Application.Quit(); // Or return to main menu, etc.
     }
-
-    //public void SetMicrophoneSensitivity(float value)
-    //{
-    //    Debug.Log("Setting mic sensitivity: " + value);
-    //    if (audioDetector != null)
-    //    {
-    //        // Example: map value to thresholds
-    //        audioDetector.sampleWindow = Mathf.RoundToInt(Mathf.Lerp(64, 2048, value));
-    //    }
-    //}
 }
