@@ -13142,6 +13142,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32536c83ff6cc3347b09714f12dd0f3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isActive: 1
   agent: {fileID: 0}
   player: {fileID: 2067215672}
   whatIsGround:
@@ -15880,6 +15881,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32536c83ff6cc3347b09714f12dd0f3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isActive: 1
   agent: {fileID: 2035309761}
   player: {fileID: 2067215672}
   whatIsGround:
