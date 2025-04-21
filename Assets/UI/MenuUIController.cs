@@ -1,15 +1,19 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class MenuUIController : MonoBehaviour
 {
+    public GameObject Exam;
     public AudioDetector audioDetector;
     public GameObject gameplayUI;
+    public GameObject EndOfGame;
     public GameObject passedText;
     public GameObject failedText;
     public GameObject caughtText;
     public GameResultChecker resultChecker;
     public InvigilatorAI invigilatorAI; // Direct reference to the script
+
 
     private Vector3 aiStartPosition;
     private Quaternion aiStartRotation;
@@ -23,46 +27,56 @@ public class MenuUIController : MonoBehaviour
             aiStartPosition = invigilatorAI.transform.position;
             aiStartRotation = invigilatorAI.transform.rotation;
         }
+        Exam.SetActive(false);
+        HideText();
     }
 
     public void RestartGame()
     {
-        Debug.Log("Restarting game...");
+        Debug.Log("Starting game...");
 
         hasDisplayedFail = false;
 
-        // Reset AI position and pause it
+        ResetInvigilator();
+        HideText();
+
+        // Reset game state
+        gameplayUI.SetActive(false);
+        resultChecker.ResetResult();
+
+        // Reset Exam to be invisible
+        Exam.SetActive(true);
+    }
+
+    private void ResetInvigilator()
+    {
         invigilatorAI.transform.position = aiStartPosition;
         invigilatorAI.transform.rotation = aiStartRotation;
         invigilatorAI.agent.ResetPath();
-        invigilatorAI.isActive = false;
+        invigilatorAI.isActive = true;
         invigilatorAI.strikes = 0;
+    }
 
-        // Hide result texts
+    private void HideText()
+    {
         passedText.SetActive(false);
         failedText.SetActive(false);
         caughtText.SetActive(false);
-
-        // Reset game state
-        gameplayUI.SetActive(true);
-        resultChecker.ResetResult();
     }
 
     public void StartGame()
     {
-        Debug.Log("Invigilator AI is now active.");
-        invigilatorAI.isActive = true;
-        gameplayUI.SetActive(false);
+        RestartGame();
     }
 
-    public void ShowFailureFromCatch()
+    public void ShowFailure()
     {
         if (hasDisplayedFail) return;
 
         Debug.Log("Showing fail screen from Invigilator catch.");
         hasDisplayedFail = true;
 
-        if (gameplayUI != null) gameplayUI.SetActive(true);
+        gameplayUI.SetActive(true);
 
         //if (failedText != null) failedText.SetActive(true);
         if (caughtText != null)
@@ -73,8 +87,13 @@ public class MenuUIController : MonoBehaviour
         {
             failedText?.SetActive(true); // fallback if caughtText is not set
         }
+        Exam.SetActive(false);
 
-        if (invigilatorAI != null) invigilatorAI.isActive = false;
+
+        if (invigilatorAI != null)
+        {
+            invigilatorAI.isActive = false;
+        }
     }
 
     public void EndGame()

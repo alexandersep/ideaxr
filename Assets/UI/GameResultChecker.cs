@@ -11,6 +11,8 @@ public class GameResultChecker : MonoBehaviour
     public GameObject failedText;
 
     public GameObject gameplayUI; // Canvas or panel to reactivate
+    public GameObject Exam;
+    public GameObject startOfGame;
 
     private bool hasDisplayedResult = false;
 
@@ -23,6 +25,7 @@ public class GameResultChecker : MonoBehaviour
 
             if (isHandRaised)
             {
+                startOfGame.SetActive(true);
                 if (result >= 0.9f)
                 {
                     passedText.SetActive(true);
@@ -37,6 +40,7 @@ public class GameResultChecker : MonoBehaviour
                 if (gameplayUI != null)
                 {
                     gameplayUI.SetActive(true); // Show the UI again
+                    Exam.SetActive(false);
                 }
 
                 hasDisplayedResult = true;

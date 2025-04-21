@@ -97,7 +97,7 @@ public class InvigilatorAI : MonoBehaviour
 
             if (menuUIController != null)
             {
-                menuUIController.ShowFailureFromCatch();
+                menuUIController.ShowFailure();
             }
 
             return;
