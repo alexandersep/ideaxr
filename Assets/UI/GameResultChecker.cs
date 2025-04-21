@@ -43,4 +43,11 @@ public class GameResultChecker : MonoBehaviour
             }
         }
     }
+
+    public void ResetResult()
+    {
+        hasDisplayedResult = false;
+        passedText.SetActive(false);
+        failedText.SetActive(false);
+    }
 }
