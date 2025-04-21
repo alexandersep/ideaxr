@@ -7,6 +7,7 @@ public class MenuUIController : MonoBehaviour
     public GameObject gameplayUI;
     public GameObject passedText;
     public GameObject failedText;
+    public GameObject caughtText;
     public GameResultChecker resultChecker;
     public InvigilatorAI invigilatorAI; // Direct reference to the script
 
@@ -33,13 +34,14 @@ public class MenuUIController : MonoBehaviour
         // Reset AI position and pause it
         invigilatorAI.transform.position = aiStartPosition;
         invigilatorAI.transform.rotation = aiStartRotation;
-        invigilatorAI.agent.ResetPath(); // stop any pathing
+        invigilatorAI.agent.ResetPath();
         invigilatorAI.isActive = false;
         invigilatorAI.strikes = 0;
 
         // Hide result texts
         passedText.SetActive(false);
         failedText.SetActive(false);
+        caughtText.SetActive(false);
 
         // Reset game state
         gameplayUI.SetActive(true);
@@ -61,7 +63,16 @@ public class MenuUIController : MonoBehaviour
         hasDisplayedFail = true;
 
         if (gameplayUI != null) gameplayUI.SetActive(true);
-        if (failedText != null) failedText.SetActive(true);
+
+        //if (failedText != null) failedText.SetActive(true);
+        if (caughtText != null)
+        {
+            caughtText.SetActive(true); // Show the caught-specific message
+        }
+        else
+        {
+            failedText?.SetActive(true); // fallback if caughtText is not set
+        }
 
         if (invigilatorAI != null) invigilatorAI.isActive = false;
     }
