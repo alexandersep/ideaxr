@@ -6,6 +6,7 @@ using UnityEngine.AI;
 public class InvigilatorAI : MonoBehaviour
 {
     public bool isActive = true; // Flag to enable/disable the AI
+
     public NavMeshAgent agent;
 
     public Transform player;
@@ -34,6 +35,8 @@ public class InvigilatorAI : MonoBehaviour
     private float timeSinceLastNoise;
     public float patrolRadius = 10f;  
     public float maxDistanceFromPlayer = 15f;
+
+    public int strikes = 0; // Number of strikes before the player is caught
 
     // Investigating
     public Vector3 standPoint = new Vector3(0.06f, 0.0f, 1.162f);
@@ -72,7 +75,7 @@ public class InvigilatorAI : MonoBehaviour
     {
         if (!isActive)
         {
-            // If we just became inactive, save our state
+            // If we just became inactive save destination
             if (agent.hasPath)
             {
                 savedDestination = agent.destination;
@@ -82,9 +85,14 @@ public class InvigilatorAI : MonoBehaviour
         }
         else if (!agent.hasPath && savedDestination != Vector3.zero)
         {
-            // Restore path if we were paused
+            // Restore path
             agent.SetDestination(savedDestination);
             savedDestination = Vector3.zero;
+        }
+        if (strikes >= 3)
+        {
+            Debug.Log("Player caught!");
+            return;
         }
 
         float distance = Vector3.Distance(transform.position, player.position);
@@ -265,7 +273,10 @@ public class InvigilatorAI : MonoBehaviour
         if (isActive)
         {
             if (doAttack)
+            {
                 animator.SetTrigger("isAttacking");
+                strikes++;
+            }
             else
             {
                 animator.ResetTrigger("isAttacking");
