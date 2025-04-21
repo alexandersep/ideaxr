@@ -13,6 +13,8 @@ public class InvigilatorAI : MonoBehaviour
 
     public LayerMask whatIsGround;//, whatIsPlayer;
 
+    public MenuUIController menuUIController;
+
     private Animator animator;
 
     // Patroling
@@ -92,6 +94,12 @@ public class InvigilatorAI : MonoBehaviour
         if (strikes >= 3)
         {
             Debug.Log("Player caught!");
+
+            if (menuUIController != null)
+            {
+                menuUIController.ShowFailureFromCatch();
+            }
+
             return;
         }
 

@@ -12,6 +12,7 @@ public class MenuUIController : MonoBehaviour
 
     private Vector3 aiStartPosition;
     private Quaternion aiStartRotation;
+    private bool hasDisplayedFail = false;
 
     void Start()
     {
@@ -27,11 +28,14 @@ public class MenuUIController : MonoBehaviour
     {
         Debug.Log("Restarting game...");
 
+        hasDisplayedFail = false;
+
         // Reset AI position and pause it
         invigilatorAI.transform.position = aiStartPosition;
         invigilatorAI.transform.rotation = aiStartRotation;
         invigilatorAI.agent.ResetPath(); // stop any pathing
         invigilatorAI.isActive = false;
+        invigilatorAI.strikes = 0;
 
         // Hide result texts
         passedText.SetActive(false);
@@ -44,16 +48,22 @@ public class MenuUIController : MonoBehaviour
 
     public void StartGame()
     {
-        //invigilatorAI.isActive = true;
-        //Debug.Log("Invigilator AI is now active.");
-
-        //if (gameplayUI != null)
-        //{
-        //    gameplayUI.SetActive(false); // Hide the UI
-        //}
-
+        Debug.Log("Invigilator AI is now active.");
         invigilatorAI.isActive = true;
         gameplayUI.SetActive(false);
+    }
+
+    public void ShowFailureFromCatch()
+    {
+        if (hasDisplayedFail) return;
+
+        Debug.Log("Showing fail screen from Invigilator catch.");
+        hasDisplayedFail = true;
+
+        if (gameplayUI != null) gameplayUI.SetActive(true);
+        if (failedText != null) failedText.SetActive(true);
+
+        if (invigilatorAI != null) invigilatorAI.isActive = false;
     }
 
     public void EndGame()
