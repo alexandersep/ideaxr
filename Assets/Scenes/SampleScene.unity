@@ -13864,6 +13864,7 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 0
+  menuUIController: {fileID: 0}
   walkPoint: {x: 0, y: 0, z: 0}
   walkPointRange: 0
   sightRange: 0
@@ -16654,6 +16655,7 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 256
+  menuUIController: {fileID: 492764817}
   walkPoint: {x: 0, y: 0, z: 0}
   walkPointRange: 5
   sightRange: 0
