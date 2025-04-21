@@ -1,0 +1,14 @@
+# Blender 4.3.2 MTL File: 'old_bookshelf.blend'
+# www.blender.org
+
+newmtl 1001
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd textures/1001_albedo.jpg
+map_Ns textures/1001_roughness.jpg
+map_refl textures/1001_metallic.jpg
+map_Bump -bm 1.000000 textures/1001_normal.png
