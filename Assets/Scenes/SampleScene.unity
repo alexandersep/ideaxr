@@ -4239,6 +4239,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioDetector: {fileID: 2067215671}
   gameManager: {fileID: 0}
+  gameplayUI: {fileID: 19329399}
+  invigilatorAI: {fileID: 2035309762}
 --- !u!4 &492764818
 Transform:
   m_ObjectHideFlags: 0
@@ -14048,6 +14050,7 @@ MonoBehaviour:
   questionsChecker: {fileID: 1162751280}
   passedText: {fileID: 862027892}
   failedText: {fileID: 1174534718}
+  gameplayUI: {fileID: 19329399}
 --- !u!4 &1672423373
 Transform:
   m_ObjectHideFlags: 0
@@ -16119,7 +16122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32536c83ff6cc3347b09714f12dd0f3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isActive: 1
+  isActive: 0
   agent: {fileID: 2035309761}
   player: {fileID: 2067215672}
   whatIsGround:

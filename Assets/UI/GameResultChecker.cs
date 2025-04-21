@@ -10,6 +10,8 @@ public class GameResultChecker : MonoBehaviour
     public GameObject passedText;
     public GameObject failedText;
 
+    public GameObject gameplayUI; // Canvas or panel to reactivate
+
     private bool hasDisplayedResult = false;
 
     void Update()
@@ -30,6 +32,11 @@ public class GameResultChecker : MonoBehaviour
                 {
                     failedText.SetActive(true);
                     Debug.Log("Player failed the exam.");
+                }
+
+                if (gameplayUI != null)
+                {
+                    gameplayUI.SetActive(true); // Show the UI again
                 }
 
                 hasDisplayedResult = true;
