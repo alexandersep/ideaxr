@@ -10,8 +10,8 @@ public class ScaleFromMicrophone : MonoBehaviour
     public Slider sensitivitySlider;
     public AudioDetector detector;
 
-    public float minimumSensibility = 10f;
-    public float maximumSensibility = 200f;
+    public float minimumSensibility = 100f;
+    public float maximumSensibility = 1000f;
     public float loudnessSensibility = 100f;
     public float threshold = 0.5f;
 
