@@ -28,8 +28,8 @@ public class InvigilatorAI : MonoBehaviour
 
     private AudioDetector audioDetector;
     public float hearingRadius = 10f;
-    public float whisperThreshold = 0.05f;
-    public float alertThreshold = 0.15f;
+    public float whisperThreshold = 0.00005f;
+    public float alertThreshold = 0.0001f;
     public float resetTime = 5f;
     public float retreatTime = 3f;
     public float retreatSpeed = 3f;
